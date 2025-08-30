@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Learning Platform - Cheatsheet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>SQL Learning Platform</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="lessons.html" class="nav-link">Lessons</a>
+                </li>
+                <li class="nav-item">
+                    <a href="practice.html" class="nav-link">Practice</a>
+                </li>
+                <li class="nav-item">
+                    <a href="quiz.html" class="nav-link">Quiz</a>
+                </li>
+                <li class="nav-item">
+                    <a href="leaderboard.html" class="nav-link">Leaderboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="cheatsheet.html" class="nav-link active">Cheatsheet</a>
+                </li>
+                <li class="nav-item">
+                    <button id="theme-toggle" class="theme-toggle">🌙</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <h1>SQL Cheatsheet</h1>
+            <p class="page-description">Quick reference for all essential SQL commands. Click the copy button to copy any command!</p>
+
+            <!-- Search Section -->
+            <section class="search-section">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search for SQL commands..." class="search-input">
+                    <button id="search-btn" class="search-btn">🔍</button>
+                </div>
+            </section>
+
+            <!-- Filter Section -->
+            <section class="filter-section">
+                <div class="filter-controls">
+                    <button class="filter-btn active" data-category="all">All</button>
+                    <button class="filter-btn" data-category="basic">Basic</button>
+                    <button class="filter-btn" data-category="advanced">Advanced</button>
+                    <button class="filter-btn" data-category="functions">Functions</button>
+                    <button class="filter-btn" data-category="joins">Joins</button>
+                </div>
+            </section>
+
+            <!-- Basic SQL Commands -->
+            <section class="command-section" data-category="basic">
+                <h2>Basic SQL Commands</h2>
+                
+                <div class="command-grid">
+                    <!-- SELECT -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>SELECT</h3>
+                            <button class="copy-btn" data-command="SELECT column1, column2 FROM table_name;">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Retrieve data from database tables</p>
+                        </div>
+                        <div class="command-example">
+                            <code>SELECT column1, column2 FROM table_name;</code>
+                        </div>
+                    </div>
+
+                    <!-- SELECT ALL -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>SELECT ALL</h3>
+                            <button class="copy-btn" data-command="SELECT * FROM table_name;">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Select all columns from a table</p>
+                        </div>
+                        <div class="command-example">
+                            <code>SELECT * FROM table_name;</code>
+                        </div>
+                    </div>
+
+                    <!-- WHERE -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>WHERE</h3>
+                            <button class="copy-btn" data-command="SELECT * FROM table_name WHERE condition;">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Filter records based on conditions</p>
+                        </div>
+                        <div class="command-example">
+                            <code>SELECT * FROM table_name WHERE condition;</code>
+                        </div>
+                    </div>
+
+                    <!-- ORDER BY -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>ORDER BY</h3>
+                            <button class="copy-btn" data-command="SELECT * FROM table_name ORDER BY column_name ASC;">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Sort results in ascending or descending order</p>
+                        </div>
+                        <div class="command-example">
+                            <code>SELECT * FROM table_name ORDER BY column_name ASC;</code>
+                        </div>
+                    </div>
+
+                    <!-- INSERT -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>INSERT</h3>
+                            <button class="copy-btn" data-command="INSERT INTO table_name (column1, column2) VALUES (value1, value2);">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Add new records to a table</p>
+                        </div>
+                        <div class="command-example">
+                            <code>INSERT INTO table_name (column1, column2) VALUES (value1, value2);</code>
+                        </div>
+                    </div>
+
+                    <!-- UPDATE -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>UPDATE</h3>
+                            <button class="copy-btn" data-command="UPDATE table_name SET column1 = value1 WHERE condition;">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Modify existing records</p>
+                        </div>
+                        <div class="command-example">
+                            <code>UPDATE table_name SET column1 = value1 WHERE condition;</code>
+                        </div>
+                    </div>
+
+                    <!-- DELETE -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>DELETE</h3>
+                            <button class="copy-btn" data-command="DELETE FROM table_name WHERE condition;">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Remove records from a table</p>
+                        </div>
+                        <div class="command-example">
+                            <code>DELETE FROM table_name WHERE condition;</code>
+                        </div>
+                    </div>
+
+                    <!-- DISTINCT -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>DISTINCT</h3>
+                            <button class="copy-btn" data-command="SELECT DISTINCT column_name FROM table_name;">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Return only unique values</p>
+                        </div>
+                        <div class="command-example">
+                            <code>SELECT DISTINCT column_name FROM table_name;</code>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Advanced SQL Commands -->
+            <section class="command-section" data-category="advanced">
+                <h2>Advanced SQL Commands</h2>
+                
+                <div class="command-grid">
+                    <!-- GROUP BY -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>GROUP BY</h3>
+                            <button class="copy-btn" data-command="SELECT column1, COUNT(*) FROM table_name GROUP BY column1;">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Group rows with same values</p>
+                        </div>
+                        <div class="command-example">
+                            <code>SELECT column1, COUNT(*) FROM table_name GROUP BY column1;</code>
+                        </div>
+                    </div>
+
+                    <!-- HAVING -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>HAVING</h3>
+                            <button class="copy-btn" data-command="SELECT column1, COUNT(*) FROM table_name GROUP BY column1 HAVING COUNT(*) > 1;">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Filter groups based on conditions</p>
+                        </div>
+                        <div class="command-example">
+                            <code>SELECT column1, COUNT(*) FROM table_name GROUP BY column1 HAVING COUNT(*) > 1;</code>
+                        </div>
+                    </div>
+
+                    <!-- LIMIT -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>LIMIT</h3>
+                            <button class="copy-btn" data-command="SELECT * FROM table_name LIMIT 10;">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Limit the number of results returned</p>
+                        </div>
+                        <div class="command-example">
+                            <code>SELECT * FROM table_name LIMIT 10;</code>
+                        </div>
+                    </div>
+
+                    <!-- SUBQUERY -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>SUBQUERY</h3>
+                            <button class="copy-btn" data-command="SELECT * FROM table1 WHERE column1 IN (SELECT column1 FROM table2);">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Query within another query</p>
+                        </div>
+                        <div class="command-example">
+                            <code>SELECT * FROM table1 WHERE column1 IN (SELECT column1 FROM table2);</code>
+                        </div>
+                    </div>
+
+                    <!-- UNION -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>UNION</h3>
+                            <button class="copy-btn" data-command="SELECT column1 FROM table1 UNION SELECT column1 FROM table2;">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Combine results from multiple queries</p>
+                        </div>
+                        <div class="command-example">
+                            <code>SELECT column1 FROM table1 UNION SELECT column1 FROM table2;</code>
+                        </div>
+                    </div>
+
+                    <!-- CREATE TABLE -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>CREATE TABLE</h3>
+                            <button class="copy-btn" data-command="CREATE TABLE table_name (column1 datatype, column2 datatype);">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Create a new table</p>
+                        </div>
+                        <div class="command-example">
+                            <code>CREATE TABLE table_name (column1 datatype, column2 datatype);</code>
+                        </div>
+                    </div>
+
+                    <!-- ALTER TABLE -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>ALTER TABLE</h3>
+                            <button class="copy-btn" data-command="ALTER TABLE table_name ADD column_name datatype;">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Modify table structure</p>
+                        </div>
+                        <div class="command-example">
+                            <code>ALTER TABLE table_name ADD column_name datatype;</code>
+                        </div>
+                    </div>
+
+                    <!-- DROP TABLE -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>DROP TABLE</h3>
+                            <button class="copy-btn" data-command="DROP TABLE table_name;">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Delete a table completely</p>
+                        </div>
+                        <div class="command-example">
+                            <code>DROP TABLE table_name;</code>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SQL Functions -->
+            <section class="command-section" data-category="functions">
+                <h2>SQL Functions</h2>
+                
+                <div class="command-grid">
+                    <!-- COUNT -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>COUNT()</h3>
+                            <button class="copy-btn" data-command="SELECT COUNT(*) FROM table_name;">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Count number of rows</p>
+                        </div>
+                        <div class="command-example">
+                            <code>SELECT COUNT(*) FROM table_name;</code>
+                        </div>
+                    </div>
+
+                    <!-- SUM -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>SUM()</h3>
+                            <button class="copy-btn" data-command="SELECT SUM(column_name) FROM table_name;">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Calculate sum of values</p>
+                        </div>
+                        <div class="command-example">
+                            <code>SELECT SUM(column_name) FROM table_name;</code>
+                        </div>
+                    </div>
+
+                    <!-- AVG -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>AVG()</h3>
+                            <button class="copy-btn" data-command="SELECT AVG(column_name) FROM table_name;">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Calculate average value</p>
+                        </div>
+                        <div class="command-example">
+                            <code>SELECT AVG(column_name) FROM table_name;</code>
+                        </div>
+                    </div>
+
+                    <!-- MAX -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>MAX()</h3>
+                            <button class="copy-btn" data-command="SELECT MAX(column_name) FROM table_name;">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Find maximum value</p>
+                        </div>
+                        <div class="command-example">
+                            <code>SELECT MAX(column_name) FROM table_name;</code>
+                        </div>
+                    </div>
+
+                    <!-- MIN -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>MIN()</h3>
+                            <button class="copy-btn" data-command="SELECT MIN(column_name) FROM table_name;">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Find minimum value</p>
+                        </div>
+                        <div class="command-example">
+                            <code>SELECT MIN(column_name) FROM table_name;</code>
+                        </div>
+                    </div>
+
+                    <!-- UPPER -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>UPPER()</h3>
+                            <button class="copy-btn" data-command="SELECT UPPER(column_name) FROM table_name;">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Convert text to uppercase</p>
+                        </div>
+                        <div class="command-example">
+                            <code>SELECT UPPER(column_name) FROM table_name;</code>
+                        </div>
+                    </div>
+
+                    <!-- LOWER -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>LOWER()</h3>
+                            <button class="copy-btn" data-command="SELECT LOWER(column_name) FROM table_name;">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Convert text to lowercase</p>
+                        </div>
+                        <div class="command-example">
+                            <code>SELECT LOWER(column_name) FROM table_name;</code>
+                        </div>
+                    </div>
+
+                    <!-- LENGTH -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>LENGTH()</h3>
+                            <button class="copy-btn" data-command="SELECT LENGTH(column_name) FROM table_name;">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Get length of text</p>
+                        </div>
+                        <div class="command-example">
+                            <code>SELECT LENGTH(column_name) FROM table_name;</code>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SQL Joins -->
+            <section class="command-section" data-category="joins">
+                <h2>SQL Joins</h2>
+                
+                <div class="command-grid">
+                    <!-- INNER JOIN -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>INNER JOIN</h3>
+                            <button class="copy-btn" data-command="SELECT * FROM table1 INNER JOIN table2 ON table1.id = table2.id;">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Return matching records from both tables</p>
+                        </div>
+                        <div class="command-example">
+                            <code>SELECT * FROM table1 INNER JOIN table2 ON table1.id = table2.id;</code>
+                        </div>
+                    </div>
+
+                    <!-- LEFT JOIN -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>LEFT JOIN</h3>
+                            <button class="copy-btn" data-command="SELECT * FROM table1 LEFT JOIN table2 ON table1.id = table2.id;">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Return all records from left table</p>
+                        </div>
+                        <div class="command-example">
+                            <code>SELECT * FROM table1 LEFT JOIN table2 ON table1.id = table2.id;</code>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT JOIN -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>RIGHT JOIN</h3>
+                            <button class="copy-btn" data-command="SELECT * FROM table1 RIGHT JOIN table2 ON table1.id = table2.id;">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Return all records from right table</p>
+                        </div>
+                        <div class="command-example">
+                            <code>SELECT * FROM table1 RIGHT JOIN table2 ON table1.id = table2.id;</code>
+                        </div>
+                    </div>
+
+                    <!-- FULL OUTER JOIN -->
+                    <div class="command-card">
+                        <div class="command-header">
+                            <h3>FULL OUTER JOIN</h3>
+                            <button class="copy-btn" data-command="SELECT * FROM table1 FULL OUTER JOIN table2 ON table1.id = table2.id;">Copy</button>
+                        </div>
+                        <div class="command-description">
+                            <p>Return all records from both tables</p>
+                        </div>
+                        <div class="command-example">
+                            <code>SELECT * FROM table1 FULL OUTER JOIN table2 ON table1.id = table2.id;</code>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Copy Notification -->
+            <div class="copy-notification" id="copy-notification">
+                <span>Command copied to clipboard!</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 SQL Learning Platform. Built for educational purposes.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Learning Platform - Leaderboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>SQL Learning Platform</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="lessons.html" class="nav-link">Lessons</a>
+                </li>
+                <li class="nav-item">
+                    <a href="practice.html" class="nav-link">Practice</a>
+                </li>
+                <li class="nav-item">
+                    <a href="quiz.html" class="nav-link">Quiz</a>
+                </li>
+                <li class="nav-item">
+                    <a href="leaderboard.html" class="nav-link active">Leaderboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="cheatsheet.html" class="nav-link">Cheatsheet</a>
+                </li>
+                <li class="nav-item">
+                    <button id="theme-toggle" class="theme-toggle">🌙</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <h1>Leaderboard</h1>
+            <p class="page-description">See how you rank among other SQL learners!</p>
+
+            <!-- Leaderboard Stats -->
+            <section class="leaderboard-stats">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="total-participants">0</span>
+                            <span class="stat-label">Total Participants</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🏆</div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="highest-score">0%</span>
+                            <span class="stat-label">Highest Score</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="average-score">0%</span>
+                            <span class="stat-label">Average Score</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🎯</div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="your-rank">-</span>
+                            <span class="stat-label">Your Best Rank</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Filter Options -->
+            <section class="filter-section">
+                <div class="filter-controls">
+                    <button class="filter-btn active" data-filter="all">All Scores</button>
+                    <button class="filter-btn" data-filter="today">Today</button>
+                    <button class="filter-btn" data-filter="week">This Week</button>
+                    <button class="filter-btn" data-filter="personal">My Scores</button>
+                </div>
+            </section>
+
+            <!-- Leaderboard Table -->
+            <section class="leaderboard-section">
+                <div class="leaderboard-container">
+                    <div class="leaderboard-header">
+                        <h2>Top Performers</h2>
+                        <button id="refresh-leaderboard" class="btn btn-secondary">Refresh</button>
+                    </div>
+
+                    <!-- Leaderboard Table -->
+                    <div class="leaderboard-table-container">
+                        <table class="leaderboard-table" id="leaderboard-table">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Name</th>
+                                    <th>Score</th>
+                                    <th>Correct Answers</th>
+                                    <th>Time Taken</th>
+                                    <th>Date</th>
+                                    <th>Badge</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leaderboard-tbody">
+                                <!-- Leaderboard entries will be inserted here by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Empty State -->
+                    <div class="empty-leaderboard" id="empty-leaderboard" style="display: none;">
+                        <div class="empty-icon">📊</div>
+                        <h3>No Quiz Results Yet</h3>
+                        <p>Be the first to take the quiz and appear on the leaderboard!</p>
+                        <a href="quiz.html" class="btn btn-primary">Take Quiz</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Personal Best Section -->
+            <section class="personal-best-section" id="personal-best-section" style="display: none;">
+                <h2>Your Personal Best</h2>
+                <div class="personal-best-card">
+                    <div class="best-score-display">
+                        <div class="best-score-circle">
+                            <span class="best-score-percentage" id="personal-best-score">0%</span>
+                        </div>
+                        <div class="best-score-details">
+                            <div class="best-score-stat">
+                                <span class="stat-label">Rank:</span>
+                                <span class="stat-value" id="personal-best-rank">#-</span>
+                            </div>
+                            <div class="best-score-stat">
+                                <span class="stat-label">Date:</span>
+                                <span class="stat-value" id="personal-best-date">-</span>
+                            </div>
+                            <div class="best-score-stat">
+                                <span class="stat-label">Time:</span>
+                                <span class="stat-value" id="personal-best-time">-</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="improvement-section">
+                        <h3>Room for Improvement</h3>
+                        <p id="improvement-message">Keep practicing to improve your score!</p>
+                        <div class="improvement-actions">
+                            <a href="lessons.html" class="btn btn-info">Review Lessons</a>
+                            <a href="practice.html" class="btn btn-secondary">Practice More</a>
+                            <a href="quiz.html" class="btn btn-primary">Retake Quiz</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Achievement Badges -->
+            <section class="achievements-section">
+                <h2>Achievement Badges</h2>
+                <div class="badges-grid">
+                    <div class="badge-card">
+                        <div class="badge-icon">🥉</div>
+                        <h3>Bronze Learner</h3>
+                        <p>Score 50% or higher</p>
+                    </div>
+                    <div class="badge-card">
+                        <div class="badge-icon">🥈</div>
+                        <h3>Silver Expert</h3>
+                        <p>Score 70% or higher</p>
+                    </div>
+                    <div class="badge-card">
+                        <div class="badge-icon">🥇</div>
+                        <h3>Gold Master</h3>
+                        <p>Score 90% or higher</p>
+                    </div>
+                    <div class="badge-card">
+                        <div class="badge-icon">⚡</div>
+                        <h3>Speed Demon</h3>
+                        <p>Complete quiz in under 5 minutes</p>
+                    </div>
+                    <div class="badge-card">
+                        <div class="badge-icon">🎯</div>
+                        <h3>Perfect Score</h3>
+                        <p>Score 100%</p>
+                    </div>
+                    <div class="badge-card">
+                        <div class="badge-icon">🔥</div>
+                        <h3>Consistent Performer</h3>
+                        <p>Take quiz 5 times</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Actions Section -->
+            <section class="actions-section">
+                <div class="action-buttons">
+                    <a href="quiz.html" class="btn btn-primary">Take Quiz</a>
+                    <button id="clear-scores" class="btn btn-danger">Clear All Scores</button>
+                    <button id="export-scores" class="btn btn-info">Export Scores</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 SQL Learning Platform. Built for educational purposes.</p>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
