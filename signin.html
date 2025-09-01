@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>SQL Learning Platform - Sign In</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+     Navigation Bar (kept consistent) 
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>SQL Learning Platform</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="lessons.html" class="nav-link">Lessons</a></li>
+                <li class="nav-item"><a href="practice.html" class="nav-link">Practice</a></li>
+                <li class="nav-item"><a href="quiz.html" class="nav-link">Quiz</a></li>
+                <li class="nav-item"><a href="leaderboard.html" class="nav-link">Leaderboard</a></li>
+                <li class="nav-item"><a href="cheatsheet.html" class="nav-link">Cheatsheet</a></li>
+                <li class="nav-item"><a href="signin.html" id="auth-link" class="nav-link">Sign In</a></li>
+                <li class="nav-item"><button id="theme-toggle" class="theme-toggle">🌙</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container auth-container">
+            <div class="auth-card">
+                <h1 class="auth-title">Welcome back</h1>
+                <p class="auth-subtitle">Sign in to continue learning SQL</p>
+
+                <form id="signin-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="signin-email">Email</label>
+                        <input id="signin-email" type="email" placeholder="you@example.com" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="signin-password">Password</label>
+                        <input id="signin-password" type="password" placeholder="••••••••" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                </form>
+
+                <p class="auth-switch">
+                    Don’t have an account?
+                    <a href="signup.html">Sign up</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 SQL Learning Platform. Built for educational purposes.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
