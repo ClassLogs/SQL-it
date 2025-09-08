@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SQL-it - Cheatsheet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -36,7 +39,7 @@
                     <a href="signin.html" id="auth-link" class="nav-link">Sign In</a>
                 </li>
                 <li class="nav-item">
-                    <button id="theme-toggle" class="theme-toggle">🌙</button>
+                    <button id="theme-toggle" class="theme-toggle">Dark</button>
                 </li>
             </ul>
         </div>
@@ -45,25 +48,69 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="container">
-            <h1>SQL Cheatsheet</h1>
-            <p class="page-description">Quick reference for all essential SQL commands. Click the copy button to copy any command!</p>
+            <div class="page-header">
+                <h1>SQL Reference Guide</h1>
+                <p class="page-description">Comprehensive SQL command reference with syntax examples and practical usage. Search, filter, and copy commands instantly.</p>
+                <div class="cheatsheet-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Commands</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">Categories</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Copy Ready</span>
+                    </div>
+                </div>
+            </div>
 
             <!-- Search Section -->
             <section class="search-section">
                 <div class="search-container">
-                    <input type="text" id="search-input" placeholder="Search for SQL commands..." class="search-input">
-                    <button id="search-btn" class="search-btn">🔍</button>
+                    <div class="search-input-wrapper">
+                        <input type="text" id="search-input" placeholder="Search SQL commands, functions, or keywords..." class="search-input">
+                        <button id="search-btn" class="search-btn">
+                            <span class="search-icon">🔍</span>
+                        </button>
+                    </div>
+                    <div class="search-suggestions" id="search-suggestions">
+                        <!-- Search suggestions will appear here -->
+                    </div>
                 </div>
             </section>
 
             <!-- Filter Section -->
             <section class="filter-section">
+                <div class="filter-header">
+                    <h3>Filter by Category</h3>
+                    <div class="filter-stats">
+                        <span id="filter-count">Showing all commands</span>
+                    </div>
+                </div>
                 <div class="filter-controls">
-                    <button class="filter-btn active" data-category="all">All</button>
-                    <button class="filter-btn" data-category="basic">Basic</button>
-                    <button class="filter-btn" data-category="advanced">Advanced</button>
-                    <button class="filter-btn" data-category="functions">Functions</button>
-                    <button class="filter-btn" data-category="joins">Joins</button>
+                    <button class="filter-btn active" data-category="all">
+                        <span class="filter-icon">📋</span>
+                        All Commands
+                    </button>
+                    <button class="filter-btn" data-category="basic">
+                        <span class="filter-icon">🔰</span>
+                        Basic
+                    </button>
+                    <button class="filter-btn" data-category="advanced">
+                        <span class="filter-icon">⚡</span>
+                        Advanced
+                    </button>
+                    <button class="filter-btn" data-category="functions">
+                        <span class="filter-icon">🔧</span>
+                        Functions
+                    </button>
+                    <button class="filter-btn" data-category="joins">
+                        <span class="filter-icon">🔗</span>
+                        Joins
+                    </button>
                 </div>
             </section>
 

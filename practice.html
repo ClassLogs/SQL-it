@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SQL-it - Practice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -36,7 +39,7 @@
                     <a href="signin.html" id="auth-link" class="nav-link">Sign In</a>
                 </li>
                 <li class="nav-item">
-                    <button id="theme-toggle" class="theme-toggle">🌙</button>
+                    <button id="theme-toggle" class="theme-toggle">Dark</button>
                 </li>
             </ul>
         </div>
@@ -45,27 +48,61 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="container">
-            <h1>SQL Practice</h1>
-            <p class="page-description">Practice SQL queries with our interactive editor. Complete tasks step by step!</p>
+            <div class="page-header">
+                <h1>Interactive SQL Practice</h1>
+                <p class="page-description">Master SQL through hands-on exercises with our advanced editor. Build real-world skills with immediate feedback and expert guidance.</p>
+                <div class="practice-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="completed-tasks">0</span>
+                        <span class="stat-label">Completed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="total-tasks">10</span>
+                        <span class="stat-label">Total Tasks</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="success-rate">0%</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                </div>
+            </div>
 
             <!-- Progress Section -->
             <section class="progress-section">
-                <h3>Your Progress</h3>
+                <div class="progress-header">
+                    <h3>Learning Progress</h3>
+                    <div class="progress-percentage" id="progress-percentage">0%</div>
+                </div>
                 <div class="progress-bar">
                     <div class="progress-fill" id="progress-fill"></div>
                 </div>
-                <p class="progress-text">Task <span id="current-task">1</span> of <span id="total-tasks">10</span></p>
+                <div class="progress-details">
+                    <span class="progress-text">Task <span id="current-task">1</span> of <span id="total-tasks">10</span></span>
+                    <span class="progress-time">Estimated time: <span id="estimated-time">5 min</span></span>
+                </div>
             </section>
 
             <!-- Current Task Section -->
             <section class="task-section">
                 <div class="task-header">
-                    <h2 id="task-title">Task 1: Select All Data</h2>
-                    <span class="task-difficulty" id="task-difficulty">Beginner</span>
+                    <div class="task-info">
+                        <div class="task-number">Task <span id="task-number">1</span></div>
+                        <h2 id="task-title">Select All Data</h2>
+                        <div class="task-meta">
+                            <span class="task-difficulty" id="task-difficulty">Beginner</span>
+                            <span class="task-points">+10 points</span>
+                        </div>
+                    </div>
+                    <div class="task-actions">
+                        <button class="btn btn-outline" id="show-solution">Show Solution</button>
+                        <button class="btn btn-outline" id="reset-task">Reset</button>
+                    </div>
                 </div>
                 <div class="task-description" id="task-description">
                     <p>Write a SQL query to select all columns and all rows from the 'students' table.</p>
-                    <p><strong>Hint:</strong> Use the * symbol to select all columns.</p>
+                    <div class="task-hint">
+                        <strong>💡 Hint:</strong> Use the * symbol to select all columns.
+                    </div>
                 </div>
             </section>
 

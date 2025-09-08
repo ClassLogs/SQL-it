@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SQL-it - Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -36,7 +39,7 @@
                     <a href="signin.html" id="auth-link" class="nav-link">Sign In</a>
                 </li>
                 <li class="nav-item">
-                    <button id="theme-toggle" class="theme-toggle">🌙</button>
+                    <button id="theme-toggle" class="theme-toggle">Dark</button>
                 </li>
             </ul>
         </div>
@@ -45,36 +48,64 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="container">
-            <h1>SQL Knowledge Quiz</h1>
-            <p class="page-description">Test your SQL knowledge with these multiple-choice questions!</p>
+            <div class="page-header">
+                <h1>SQL Knowledge Assessment</h1>
+                <p class="page-description">Evaluate your SQL expertise with our comprehensive assessment. Test your skills and track your progress with detailed analytics.</p>
+            </div>
 
             <!-- Quiz Start Screen -->
             <section class="quiz-start" id="quiz-start">
                 <div class="quiz-intro">
-                    <h2>Ready to Test Your SQL Skills?</h2>
+                    <div class="quiz-header-content">
+                        <h2>Ready to Test Your SQL Skills?</h2>
+                        <p class="quiz-subtitle">Challenge yourself with our comprehensive SQL assessment</p>
+                    </div>
                     <div class="quiz-info">
                         <div class="quiz-stat">
+                            <div class="stat-icon">📝</div>
                             <span class="stat-number">10</span>
                             <span class="stat-label">Questions</span>
                         </div>
                         <div class="quiz-stat">
+                            <div class="stat-icon">⏱️</div>
                             <span class="stat-number">15</span>
                             <span class="stat-label">Minutes</span>
                         </div>
                         <div class="quiz-stat">
+                            <div class="stat-icon">🎯</div>
                             <span class="stat-number">70%</span>
                             <span class="stat-label">Pass Score</span>
                         </div>
+                        <div class="quiz-stat">
+                            <div class="stat-icon">🏆</div>
+                            <span class="stat-number">100</span>
+                            <span class="stat-label">Max Points</span>
+                        </div>
                     </div>
                     <div class="quiz-instructions">
-                        <h3>Instructions:</h3>
-                        <ul>
-                            <li>Answer all 10 multiple-choice questions</li>
-                            <li>You have 15 minutes to complete the quiz</li>
-                            <li>Each question has only one correct answer</li>
-                            <li>You can review your answers before submitting</li>
-                            <li>Your score will be saved to the leaderboard</li>
-                        </ul>
+                        <h3>Assessment Guidelines</h3>
+                        <div class="instructions-grid">
+                            <div class="instruction-item">
+                                <div class="instruction-icon">✓</div>
+                                <span>Answer all 10 multiple-choice questions</span>
+                            </div>
+                            <div class="instruction-item">
+                                <div class="instruction-icon">⏰</div>
+                                <span>Complete within 15 minutes</span>
+                            </div>
+                            <div class="instruction-item">
+                                <div class="instruction-icon">🎯</div>
+                                <span>Each question has one correct answer</span>
+                            </div>
+                            <div class="instruction-item">
+                                <div class="instruction-icon">📊</div>
+                                <span>Review answers before submitting</span>
+                            </div>
+                            <div class="instruction-item">
+                                <div class="instruction-icon">🏆</div>
+                                <span>Score saved to leaderboard</span>
+                            </div>
+                        </div>
                     </div>
                     <button id="start-quiz" class="btn btn-primary btn-large">Start Quiz</button>
                 </div>

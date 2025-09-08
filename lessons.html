@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SQL-it - Lessons</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -36,7 +39,7 @@
                     <a href="signin.html" id="auth-link" class="nav-link">Sign In</a>
                 </li>
                 <li class="nav-item">
-                    <button id="theme-toggle" class="theme-toggle">🌙</button>
+                    <button id="theme-toggle" class="theme-toggle">Dark</button>
                 </li>
             </ul>
         </div>
@@ -45,12 +48,32 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="container">
-            <h1>SQL Lessons</h1>
-            <p class="page-description">Learn SQL step by step with detailed explanations and practical examples.</p>
+            <div class="page-header">
+                <h1>SQL Learning Modules</h1>
+                <p class="page-description">Master SQL through comprehensive, expert-designed curriculum with real-world applications and hands-on examples.</p>
+                <div class="progress-indicator">
+                    <div class="progress-stats">
+                        <span class="stat">10 Lessons</span>
+                        <span class="stat">•</span>
+                        <span class="stat">2-3 Hours</span>
+                        <span class="stat">•</span>
+                        <span class="stat">Beginner to Advanced</span>
+                    </div>
+                </div>
+            </div>
 
             <!-- Lesson 1: Introduction to SQL -->
             <section class="lesson-section">
-                <h2>Lesson 1: Introduction to SQL</h2>
+                <div class="lesson-header">
+                    <div class="lesson-number">01</div>
+                    <div class="lesson-info">
+                        <h2>Introduction to SQL</h2>
+                        <div class="lesson-meta">
+                            <span class="difficulty beginner">Beginner</span>
+                            <span class="duration">15 min</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="lesson-content">
                     <p>
                         SQL (Structured Query Language) is a standard language for storing, manipulating, and retrieving data in databases. 
@@ -68,7 +91,16 @@
 
             <!-- Lesson 2: SELECT Statement -->
             <section class="lesson-section">
-                <h2>Lesson 2: SELECT Statement</h2>
+                <div class="lesson-header">
+                    <div class="lesson-number">02</div>
+                    <div class="lesson-info">
+                        <h2>SELECT Statement</h2>
+                        <div class="lesson-meta">
+                            <span class="difficulty beginner">Beginner</span>
+                            <span class="duration">20 min</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="lesson-content">
                     <p>
                         The SELECT statement is used to query data from a database. It's the most commonly used SQL command.
@@ -89,7 +121,16 @@
 
             <!-- Lesson 3: WHERE Clause -->
             <section class="lesson-section">
-                <h2>Lesson 3: WHERE Clause</h2>
+                <div class="lesson-header">
+                    <div class="lesson-number">03</div>
+                    <div class="lesson-info">
+                        <h2>WHERE Clause</h2>
+                        <div class="lesson-meta">
+                            <span class="difficulty beginner">Beginner</span>
+                            <span class="duration">25 min</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="lesson-content">
                     <p>
                         The WHERE clause is used to filter records based on specific conditions.
@@ -121,7 +162,16 @@
 
             <!-- Lesson 4: ORDER BY -->
             <section class="lesson-section">
-                <h2>Lesson 4: ORDER BY Clause</h2>
+                <div class="lesson-header">
+                    <div class="lesson-number">04</div>
+                    <div class="lesson-info">
+                        <h2>ORDER BY Clause</h2>
+                        <div class="lesson-meta">
+                            <span class="difficulty beginner">Beginner</span>
+                            <span class="duration">15 min</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="lesson-content">
                     <p>
                         The ORDER BY clause is used to sort the result set in ascending or descending order.
@@ -144,7 +194,16 @@
 
             <!-- Lesson 5: INSERT Statement -->
             <section class="lesson-section">
-                <h2>Lesson 5: INSERT Statement</h2>
+                <div class="lesson-header">
+                    <div class="lesson-number">05</div>
+                    <div class="lesson-info">
+                        <h2>INSERT Statement</h2>
+                        <div class="lesson-meta">
+                            <span class="difficulty intermediate">Intermediate</span>
+                            <span class="duration">20 min</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="lesson-content">
                     <p>
                         The INSERT statement is used to add new records to a table.
@@ -167,7 +226,16 @@
 
             <!-- Lesson 6: UPDATE Statement -->
             <section class="lesson-section">
-                <h2>Lesson 6: UPDATE Statement</h2>
+                <div class="lesson-header">
+                    <div class="lesson-number">06</div>
+                    <div class="lesson-info">
+                        <h2>UPDATE Statement</h2>
+                        <div class="lesson-meta">
+                            <span class="difficulty intermediate">Intermediate</span>
+                            <span class="duration">20 min</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="lesson-content">
                     <p>
                         The UPDATE statement is used to modify existing records in a table.
@@ -189,7 +257,16 @@
 
             <!-- Lesson 7: DELETE Statement -->
             <section class="lesson-section">
-                <h2>Lesson 7: DELETE Statement</h2>
+                <div class="lesson-header">
+                    <div class="lesson-number">07</div>
+                    <div class="lesson-info">
+                        <h2>DELETE Statement</h2>
+                        <div class="lesson-meta">
+                            <span class="difficulty intermediate">Intermediate</span>
+                            <span class="duration">15 min</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="lesson-content">
                     <p>
                         The DELETE statement is used to remove records from a table.
@@ -211,7 +288,16 @@
 
             <!-- Lesson 8: JOINS -->
             <section class="lesson-section">
-                <h2>Lesson 8: JOINS</h2>
+                <div class="lesson-header">
+                    <div class="lesson-number">08</div>
+                    <div class="lesson-info">
+                        <h2>JOINS</h2>
+                        <div class="lesson-meta">
+                            <span class="difficulty advanced">Advanced</span>
+                            <span class="duration">30 min</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="lesson-content">
                     <p>
                         JOINs are used to combine rows from two or more tables based on a related column between them.
@@ -241,7 +327,16 @@
 
             <!-- Lesson 9: GROUP BY -->
             <section class="lesson-section">
-                <h2>Lesson 9: GROUP BY Clause</h2>
+                <div class="lesson-header">
+                    <div class="lesson-number">09</div>
+                    <div class="lesson-info">
+                        <h2>GROUP BY Clause</h2>
+                        <div class="lesson-meta">
+                            <span class="difficulty advanced">Advanced</span>
+                            <span class="duration">25 min</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="lesson-content">
                     <p>
                         The GROUP BY clause groups rows that have the same values into summary rows. It's often used with aggregate functions.
@@ -276,7 +371,16 @@
 
             <!-- Lesson 10: HAVING Clause -->
             <section class="lesson-section">
-                <h2>Lesson 10: HAVING Clause</h2>
+                <div class="lesson-header">
+                    <div class="lesson-number">10</div>
+                    <div class="lesson-info">
+                        <h2>HAVING Clause</h2>
+                        <div class="lesson-meta">
+                            <span class="difficulty advanced">Advanced</span>
+                            <span class="duration">20 min</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="lesson-content">
                     <p>
                         The HAVING clause is used to filter groups created by GROUP BY. It's like WHERE but for groups.

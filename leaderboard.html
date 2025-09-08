@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SQL-it - Leaderboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -36,7 +39,7 @@
                     <a href="signin.html" id="auth-link" class="nav-link">Sign In</a>
                 </li>
                 <li class="nav-item">
-                    <button id="theme-toggle" class="theme-toggle">🌙</button>
+                    <button id="theme-toggle" class="theme-toggle">Dark</button>
                 </li>
             </ul>
         </div>
@@ -45,8 +48,10 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="container">
-            <h1>Leaderboard</h1>
-            <p class="page-description">See how you rank among other SQL learners!</p>
+            <div class="page-header">
+                <h1>Performance Analytics</h1>
+                <p class="page-description">Track your progress and benchmark your SQL skills against the community. See detailed analytics and achievement insights.</p>
+            </div>
 
             <!-- Leaderboard Stats -->
             <section class="leaderboard-stats">
@@ -96,8 +101,20 @@
             <section class="leaderboard-section">
                 <div class="leaderboard-container">
                     <div class="leaderboard-header">
-                        <h2>Top Performers</h2>
-                        <button id="refresh-leaderboard" class="btn btn-secondary">Refresh</button>
+                        <div class="leaderboard-title">
+                            <h2>Top Performers</h2>
+                            <p class="leaderboard-subtitle">Ranked by quiz performance and completion time</p>
+                        </div>
+                        <div class="leaderboard-actions">
+                            <button id="refresh-leaderboard" class="btn btn-secondary">
+                                <span class="btn-icon">🔄</span>
+                                Refresh
+                            </button>
+                            <button id="export-leaderboard" class="btn btn-outline">
+                                <span class="btn-icon">📊</span>
+                                Export
+                            </button>
+                        </div>
                     </div>
 
                     <!-- Leaderboard Table -->
