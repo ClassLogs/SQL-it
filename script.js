@@ -5,14 +5,22 @@ let quizAnswers = []
 let quizStartTime = null
 let quizTimer = null
 let currentPracticeTask = Number.parseInt(localStorage.getItem("currentPracticeTask")) || 1
-const practiceTasks = [] // Declare practiceTasks variable
-const studentsData = [] // Declare studentsData variable
-const quizQuestions = [] // Declare quizQuestions variable
+
+// These may be provided by data.js. Use safe fallbacks without redeclaration errors.
+window.practiceTasks = window.practiceTasks || []
+window.studentsData = window.studentsData || []
+window.quizQuestions = window.quizQuestions || []
+
+// Local aliases for convenience (use distinct names to avoid global redeclarations)
+const PRACTICE_TASKS = window.practiceTasks
+const STUDENTS_DATA = window.studentsData
+const QUIZ_QUESTIONS = window.quizQuestions
 
 // Initialize the application when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
   initializeTheme()
   initializeNavigation()
+  initializeMobileNav()
   initializePage()
   requireAuthIfProtected()
   setupNavbarAuthToggle()
@@ -55,6 +63,41 @@ function initializeNavigation() {
     link.classList.remove("active")
     if (link.getAttribute("href") === currentPage) {
       link.classList.add("active")
+    }
+  })
+}
+
+// Mobile navbar toggle
+function initializeMobileNav() {
+  const navToggle = document.getElementById("nav-toggle")
+  const navMenu = document.getElementById("primary-navigation")
+
+  if (!navToggle || !navMenu) return
+
+  // Reset initial state
+  navToggle.setAttribute("aria-expanded", "false")
+  navMenu.classList.remove("open")
+
+  navToggle.addEventListener("click", () => {
+    const isOpen = navMenu.classList.toggle("open")
+    navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false")
+  })
+
+  // Close menu after clicking a link (use capture for delegation)
+  navMenu.addEventListener("click", (e) => {
+    const link = e.target.closest("a.nav-link")
+    if (link && navMenu.classList.contains("open")) {
+      navMenu.classList.remove("open")
+      navToggle.setAttribute("aria-expanded", "false")
+    }
+  })
+
+  // Close on outside click
+  document.addEventListener("click", (e) => {
+    const insideNav = e.target.closest(".nav-container")
+    if (!insideNav && navMenu.classList.contains("open")) {
+      navMenu.classList.remove("open")
+      navToggle.setAttribute("aria-expanded", "false")
     }
   })
 }
@@ -103,7 +146,7 @@ function setupPracticeEventListeners() {
 }
 
 function loadCurrentTask() {
-  const task = practiceTasks.find((t) => t.id === currentPracticeTask)
+  const task = PRACTICE_TASKS.find((t) => t.id === currentPracticeTask)
   if (!task) return
 
   // Update task information
@@ -117,7 +160,7 @@ function loadCurrentTask() {
   const nextBtn = document.getElementById("next-task")
 
   if (prevBtn) prevBtn.disabled = currentPracticeTask === 1
-  if (nextBtn) nextBtn.disabled = currentPracticeTask === practiceTasks.length
+  if (nextBtn) nextBtn.disabled = currentPracticeTask === PRACTICE_TASKS.length
 }
 
 function updateProgress() {
@@ -126,18 +169,18 @@ function updateProgress() {
   const totalTasksSpan = document.getElementById("total-tasks")
 
   if (progressFill) {
-    const progress = (currentPracticeTask / practiceTasks.length) * 100
+    const progress = (currentPracticeTask / PRACTICE_TASKS.length) * 100
     progressFill.style.width = `${progress}%`
   }
 
   if (currentTaskSpan) currentTaskSpan.textContent = currentPracticeTask
-  if (totalTasksSpan) totalTasksSpan.textContent = practiceTasks.length
+  if (totalTasksSpan) totalTasksSpan.textContent = PRACTICE_TASKS.length
 }
 
 function runQuery() {
   const editor = document.getElementById("sql-editor")
   const query = editor.value.trim().toLowerCase()
-  const task = practiceTasks.find((t) => t.id === currentPracticeTask)
+  const task = PRACTICE_TASKS.find((t) => t.id === currentPracticeTask)
 
   if (!query) {
     showFeedback("Please enter a SQL query.", "error")
@@ -180,7 +223,7 @@ function executeQuery(query) {
 }
 
 function executeSelectQuery(query) {
-  let result = [...studentsData]
+  let result = [...STUDENTS_DATA]
 
   // Parse SELECT clause
   const selectMatch = query.match(/select\s+(.*?)\s+from/i)
@@ -376,7 +419,7 @@ function clearEditor() {
 }
 
 function showHint() {
-  const task = practiceTasks.find((t) => t.id === currentPracticeTask)
+  const task = PRACTICE_TASKS.find((t) => t.id === currentPracticeTask)
   if (task) {
     showFeedback(task.hint, "info")
   }
@@ -384,13 +427,13 @@ function showHint() {
 
 function enableNextTask() {
   const nextBtn = document.getElementById("next-task")
-  if (nextBtn && currentPracticeTask < practiceTasks.length) {
+  if (nextBtn && currentPracticeTask < PRACTICE_TASKS.length) {
     nextBtn.disabled = false
   }
 }
 
 function nextTask() {
-  if (currentPracticeTask < practiceTasks.length) {
+  if (currentPracticeTask < PRACTICE_TASKS.length) {
     currentPracticeTask++
     localStorage.setItem("currentPracticeTask", currentPracticeTask)
     loadCurrentTask()
@@ -466,7 +509,7 @@ function loadQuizState() {
 
 function startQuiz() {
   currentQuizQuestion = 0
-  quizAnswers = new Array(quizQuestions.length).fill(null)
+  quizAnswers = new Array(QUIZ_QUESTIONS.length).fill(null)
   quizStartTime = new Date()
 
   // Save quiz state
@@ -489,18 +532,18 @@ function showQuizQuestions() {
 }
 
 function loadQuestion(questionIndex) {
-  const question = quizQuestions[questionIndex]
+  const question = QUIZ_QUESTIONS[questionIndex]
   const container = document.getElementById("question-container")
 
   if (!container || !question) return
 
   // Update progress
   document.getElementById("current-question").textContent = questionIndex + 1
-  document.getElementById("total-questions").textContent = quizQuestions.length
+  document.getElementById("total-questions").textContent = QUIZ_QUESTIONS.length
 
   const progressFill = document.getElementById("quiz-progress-fill")
   if (progressFill) {
-    const progress = ((questionIndex + 1) / quizQuestions.length) * 100
+    const progress = ((questionIndex + 1) / QUIZ_QUESTIONS.length) * 100
     progressFill.style.width = `${progress}%`
   }
 
@@ -551,7 +594,7 @@ function updateQuizNavigation() {
 
   if (prevBtn) prevBtn.disabled = currentQuizQuestion === 0
 
-  if (currentQuizQuestion === quizQuestions.length - 1) {
+  if (currentQuizQuestion === QUIZ_QUESTIONS.length - 1) {
     if (nextBtn) nextBtn.style.display = "none"
     if (submitBtn) submitBtn.style.display = "inline-block"
   } else {
@@ -561,7 +604,7 @@ function updateQuizNavigation() {
 }
 
 function nextQuestion() {
-  if (currentQuizQuestion < quizQuestions.length - 1) {
+  if (currentQuizQuestion < QUIZ_QUESTIONS.length - 1) {
     currentQuizQuestion++
     loadQuestion(currentQuizQuestion)
     saveQuizState()
@@ -611,9 +654,9 @@ function submitQuiz() {
   clearInterval(quizTimer)
 
   // Calculate results
-  const correctAnswers = quizAnswers.filter((answer, index) => answer === quizQuestions[index].correctAnswer).length
+  const correctAnswers = quizAnswers.filter((answer, index) => answer === QUIZ_QUESTIONS[index].correctAnswer).length
 
-  const score = Math.round((correctAnswers / quizQuestions.length) * 100)
+  const score = Math.round((correctAnswers / QUIZ_QUESTIONS.length) * 100)
   const endTime = new Date()
   const timeTaken = Math.floor((endTime - quizStartTime) / 1000)
   const minutes = Math.floor(timeTaken / 60)
@@ -625,7 +668,7 @@ function submitQuiz() {
     name: prompt("Enter your name for the leaderboard:") || "Anonymous",
     score: score,
     correctAnswers: correctAnswers,
-    totalQuestions: quizQuestions.length,
+    totalQuestions: QUIZ_QUESTIONS.length,
     timeTaken: timeString,
     date: new Date().toISOString().split("T")[0],
     badge: getBadge(score, timeTaken),
@@ -654,7 +697,7 @@ function showQuizResults(score, correctAnswers, timeString) {
   // Update score display
   document.getElementById("score-percentage").textContent = `${score}%`
   document.getElementById("correct-answers").textContent = correctAnswers
-  document.getElementById("total-answered").textContent = quizQuestions.length
+  document.getElementById("total-answered").textContent = QUIZ_QUESTIONS.length
   document.getElementById("time-taken").textContent = timeString
 
   // Update pass status

@@ -43,17 +43,18 @@
   --bg-card: #1e293b;
   --bg-hover: #334155;
 
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
-  --text-inverse: #1e293b;
+  --text-primary: #f8fafc;      /* near-white for high readability */
+  --text-secondary: #cbd5e1;    /* subtle secondary text */
+  --text-muted: #94a3b8;        /* muted descriptions */
+  --text-inverse: #ffffff;      /* ensure buttons/text on primary are readable */
 
   --border-color: #334155;
   --border-hover: #475569;
 
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+  /* slightly lighter shadows that look natural on dark bg */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.25);
+  --shadow-md: 0 6px 10px -2px rgb(0 0 0 / 0.35), 0 2px 6px -2px rgb(0 0 0 / 0.25);
+  --shadow-lg: 0 14px 24px -6px rgb(0 0 0 / 0.45), 0 6px 12px -6px rgb(0 0 0 / 0.35);
 }
 
 /* Base Styles */
@@ -93,6 +94,26 @@ body {
   height: 4rem;
 }
 
+/* Mobile nav toggle (hamburger) */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  border-radius: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.nav-toggle:focus,
+.nav-toggle:hover {
+  background-color: var(--bg-hover);
+  border-color: var(--border-hover);
+}
+
 .nav-logo h2 {
   color: var(--primary-color);
   font-size: 1.5rem;
@@ -118,8 +139,8 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-  color: var(--primary-color);
-  background-color: var(--bg-hover);
+  color: var(--text-primary);
+  background-color: color-mix(in srgb, var(--primary-color) 18%, transparent);
 }
 
 .theme-toggle {
@@ -135,7 +156,7 @@ body {
 }
 
 .theme-toggle:hover {
-  background-color: var(--bg-hover);
+  background-color: color-mix(in srgb, var(--bg-hover) 80%, transparent);
   border-color: var(--border-hover);
 }
 
@@ -650,7 +671,7 @@ h3 {
 }
 
 .data-table tr:hover {
-  background-color: var(--bg-hover);
+  background-color: color-mix(in srgb, var(--primary-color) 10%, var(--bg-card));
 }
 
 .no-results {
@@ -1577,6 +1598,7 @@ h3 {
 .quiz-stat:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
+  background-color: color-mix(in srgb, var(--bg-card) 90%, var(--primary-color) 10%);
 }
 
 .stat-icon {
@@ -2073,7 +2095,7 @@ h3 {
 /* Hover Effects */
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(30, 64, 175, 0.3);
+  box-shadow: 0 8px 25px rgba(30, 64, 175, 0.35);
 }
 
 .btn:active {
@@ -2142,7 +2164,7 @@ h3 {
 input:focus,
 button:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.2);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.35);
 }
 
 /* Smooth Transitions */
@@ -2198,6 +2220,40 @@ button:focus {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  /* Collapse the nav into a dropdown */
+  .nav-menu {
+    position: absolute;
+    top: 4rem; /* height of navbar */
+    left: 0;
+    right: 0;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem 1rem 1rem;
+    display: none; /* hidden by default */
+  }
+
+  .nav-menu.open {
+    display: flex;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .nav-link,
+  .theme-toggle {
+    width: 100%;
+    text-align: left;
+  }
+
   .nav-menu {
     gap: 1rem;
   }
