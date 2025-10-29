@@ -1,0 +1,113 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "demo@example.com",
+      "name": "Demo User",
+      "password": "demo123",
+      "score": 500,
+      "completedLessons": ["1", "2", "3"],
+      "createdAt": "2025-01-15T10:00:00Z"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "1",
+      "title": "Introduction to SQL",
+      "description": "Learn the basics of SQL and database concepts",
+      "difficulty": "Beginner",
+      "duration": "15 min",
+      "topics": ["SELECT", "FROM", "WHERE"],
+      "content": "SQL (Structured Query Language) is a programming language designed for managing data in relational databases...",
+      "completed": false
+    },
+    {
+      "id": "2",
+      "title": "SELECT Statements",
+      "description": "Master the art of querying data",
+      "difficulty": "Beginner",
+      "duration": "20 min",
+      "topics": ["SELECT", "DISTINCT", "AS"],
+      "content": "The SELECT statement is used to query and retrieve data from a database...",
+      "completed": false
+    },
+    {
+      "id": "3",
+      "title": "Filtering Data",
+      "description": "Use WHERE clauses to filter results",
+      "difficulty": "Beginner",
+      "duration": "25 min",
+      "topics": ["WHERE", "AND", "OR", "NOT"],
+      "content": "The WHERE clause is used to filter records and extract only those that fulfill a specified condition...",
+      "completed": false
+    },
+    {
+      "id": "4",
+      "title": "Sorting Results",
+      "description": "Order your data with ORDER BY",
+      "difficulty": "Intermediate",
+      "duration": "20 min",
+      "topics": ["ORDER BY", "ASC", "DESC"],
+      "content": "The ORDER BY keyword is used to sort the result set in ascending or descending order...",
+      "completed": false
+    },
+    {
+      "id": "5",
+      "title": "JOIN Operations",
+      "description": "Combine data from multiple tables",
+      "difficulty": "Intermediate",
+      "duration": "30 min",
+      "topics": ["INNER JOIN", "LEFT JOIN", "RIGHT JOIN"],
+      "content": "JOIN clauses are used to combine rows from two or more tables based on a related column...",
+      "completed": false
+    },
+    {
+      "id": "6",
+      "title": "Aggregate Functions",
+      "description": "Calculate summaries with GROUP BY",
+      "difficulty": "Advanced",
+      "duration": "25 min",
+      "topics": ["COUNT", "SUM", "AVG", "GROUP BY"],
+      "content": "Aggregate functions perform calculations on a set of values and return a single value...",
+      "completed": false
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "q1",
+      "lessonId": "1",
+      "title": "SQL Basics Quiz",
+      "questions": [
+        {
+          "id": "q1_1",
+          "question": "What does SQL stand for?",
+          "options": [
+            "Structured Query Language",
+            "Simple Question Language",
+            "Structured Question Language",
+            "System Query Language"
+          ],
+          "correctAnswer": 0,
+          "explanation": "SQL stands for Structured Query Language, which is used to manage and query relational databases."
+        },
+        {
+          "id": "q1_2",
+          "question": "Which statement is used to retrieve data?",
+          "options": ["GET", "SELECT", "FETCH", "RETRIEVE"],
+          "correctAnswer": 1,
+          "explanation": "The SELECT statement is the primary command used to retrieve data from a database."
+        }
+      ]
+    }
+  ],
+  "leaderboard": [
+    {
+      "id": "1",
+      "userId": "1",
+      "name": "Demo User",
+      "score": 500,
+      "completedLessons": 3,
+      "rank": 1
+    }
+  ]
+}
